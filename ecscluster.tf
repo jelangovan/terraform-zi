@@ -12,7 +12,7 @@ resource "aws_ecs_service" "zoominfo-service1" {
   task_definition = aws_ecs_task_definition.zoominfo-service1.arn
   desired_count   = var.app_count
   launch_type     = "FARGATE"
-
+    
   network_configuration {
     security_groups = [aws_security_group.zoominfo_task.id]
     subnets         = aws_subnet.private.*.id
@@ -34,6 +34,7 @@ resource "aws_ecs_service" "zoominfo-service2" {
   desired_count   = var.app_count
   launch_type     = "FARGATE"
 
+  
   network_configuration {
     security_groups = [aws_security_group.zoominfo_task.id]
     subnets         = aws_subnet.private.*.id
